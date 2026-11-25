@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre mí | Jonathan Joel Macías Rodríguez</title>
+  <!-- Estilos Globales y de Páginas -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <!-- Encabezado y Navegación Compartida Flotante (Apple Island) -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">Mi Portafolio</a>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Inicio</a></li>
+          <li><a href="about.html" class="nav-link">Sobre mí</a></li>
+          <li><a href="skills.html" class="nav-link">Habilidades</a></li>
+          <li><a href="projects.html" class="nav-link">Proyectos</a></li>
+          <li><a href="contact.html" class="nav-link">Contacto</a></li>
+        </ul>
+        <div class="header-controls">
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema de color" title="Alternar modo claro / oscuro">
+            <span class="theme-icon" id="theme-icon">☀️</span>
+          </button>
+          <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido Principal: Sobre mí -->
+  <main>
+    <section class="section">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Perfil Profesional</span>
+          <h1 class="section-title">Sobre mí y mi trayectoria</h1>
+          <p class="section-subtitle">
+            Ingeniero en Sistemas Computacionales radicado en Guayaquil, Ecuador, con enfoque en ingeniería de datos, optimización y aplicaciones empresariales.
+          </p>
+        </header>
+
+        <!-- Cuadrícula de 2 columnas: Biografía/Datos y Línea de tiempo -->
+        <div class="about-grid">
+          <!-- Columna Izquierda: Biografía, Educación e Idiomas -->
+          <article class="about-card about-bio">
+            <h2 class="about-card-title">Resumen Profesional</h2>
+            <p class="about-text">
+              Soy <strong>Ingeniero en Sistemas Computacionales</strong> con más de 7 años de experiencia diseñando e implementando soluciones tecnológicas de alto impacto. Me especializo en la construcción de <strong>pipelines ETL</strong>, optimización avanzada de consultas SQL y desarrollo de dashboards analíticos en Power BI.
+            </p>
+            <p class="about-text">
+              Cuento con una comprobada capacidad para transformar volúmenes de datos no estructurados en insights accionables para la toma de decisiones ejecutiva, respaldado por un sólido dominio de bases de datos Oracle PL/SQL, automatización con scripts Shell/Bash en entornos Unix/Linux y trabajo en equipos multidisciplinarios.
+            </p>
+            <p class="about-text">
+              Comprometido con la mejora continua, estoy certificado en marcos de trabajo ágiles (Scrum) y tecnologías de nube (Google Cloud Platform / GKE, Docker).
+            </p>
+
+            <!-- Datos Clave / Idiomas -->
+            <div class="about-key-info">
+              <h3 class="about-key-title">🎓 Formación & Idiomas</h3>
+              <p class="about-key-item"><strong>Título:</strong> Ingeniería en Sistemas Computacionales (Universidad de Guayaquil, 2019)</p>
+              <p class="about-key-item"><strong>Idiomas:</strong> Español (Nativo) · Inglés (Intermedio)</p>
+            </div>
+
+            <div class="about-actions">
+              <a href="assets/docs/cv-jonathan-macias.pdf" download="CV_Jonathan_Joel_Macias.pdf" target="_blank" class="btn btn-primary">
+                📥 Descargar CV (PDF)
+              </a>
+              <a href="assets/docs/cv-jonathan-macias.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                👁️ Abrir en visor PDF
+              </a>
+              <button type="button" class="btn btn-secondary" onclick="window.print()">
+                🖨️ Generar / Guardar PDF
+              </button>
+            </div>
+          </article>
+
+          <!-- Columna Derecha: Línea de tiempo Laboral y Certificaciones -->
+          <article class="about-card timeline-card">
+            <h2 class="about-card-title">Experiencia Laboral</h2>
+            <div class="timeline-list">
+              <!-- Empleo 1: HITSS -->
+              <div class="timeline-item">
+                <span class="timeline-date">2019 – Presente</span>
+                <h3 class="timeline-title">Ingeniero de Proyectos</h3>
+                <span class="timeline-subtitle">HITSS — Ecuador</span>
+                <p class="timeline-desc">
+                  • Diseño e implementación de pipelines ETL con IBM DataStage y consultas SQL, reduciendo en 40% el tiempo de preparación de datos.<br>
+                  • Procesamiento de más de 500 GB mensuales de datos optimizados y automatización con Shell/Bash en entornos Unix.<br>
+                  • Componentes de lógica transaccional mediante Oracle PL/SQL y optimización de consultas complejas, reduciendo tiempos de reportes financieros en un 50%.<br>
+                  • Dashboards interactivos en Power BI para análisis ejecutivo, acelerando la toma de decisiones un 35%.
+                </p>
+              </div>
+
+              <!-- Empleo 2: Righttek S.A. -->
+              <div class="timeline-item">
+                <span class="timeline-date">2017 – 2019</span>
+                <h3 class="timeline-title">Programador y Analista</h3>
+                <span class="timeline-subtitle">Righttek S.A. — Ecuador</span>
+                <p class="timeline-desc">
+                  • Desarrollo de 8+ aplicaciones empresariales en Java y PHP integradas a Oracle PL/SQL para transacciones financieras con alta concurrencia.<br>
+                  • Scripts en Shell/Bash para respaldos automáticos y extracción periódica de datos en servidores de producción.<br>
+                  • Implementación y afinamiento de 25+ reportes SQL para clientes financieros, disminuyendo errores en un 20%.<br>
+                  • Soporte post-implementación a más de 10 clientes corporativos con un SLA de cumplimiento del 98%.
+                </p>
+              </div>
+
+              <!-- Certificaciones -->
+              <div class="timeline-item">
+                <span class="timeline-date">Certificaciones Oficiales</span>
+                <h3 class="timeline-title">Acreditaciones Técnicas</h3>
+                <span class="timeline-subtitle">Especializaciones y Nube</span>
+                <p class="timeline-desc">
+                  • <strong>Scrum:</strong> Scrum Fundamentals Certified (SFC) | Scrum Foundation Professional (SFPC).<br>
+                  • <strong>Cloud & DevOps:</strong> Architecting with Google Kubernetes Engine (GKE) | Docker.<br>
+                  • <strong>Desarrollo & Datos:</strong> SQL Oracle | Python | Angular | Curador de Datos.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de Página Compartido Flotante -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-copy">
+          &copy; <span id="current-year"></span> Jonathan Joel Macías Rodríguez. Guayaquil, Ecuador.
+        </p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/jonathan-macias-9813aa75" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">LinkedIn</a>
+          <a href="mailto:jonathan15-08@hotmail.com" class="social-link" aria-label="Correo">jonathan15-08@hotmail.com</a>
+          <a href="contact.html" class="social-link">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts Globales -->
+  <script src="js/main.js"></script>
+</body>
+</html>

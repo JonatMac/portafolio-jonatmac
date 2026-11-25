@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | Jonathan Joel Macías Rodríguez</title>
+  <!-- Estilos Globales y de Páginas -->
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+  <!-- Encabezado y Navegación Compartida Flotante (Apple Island) -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="logo">Mi Portafolio</a>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Inicio</a></li>
+          <li><a href="about.html" class="nav-link">Sobre mí</a></li>
+          <li><a href="skills.html" class="nav-link">Habilidades</a></li>
+          <li><a href="projects.html" class="nav-link">Proyectos</a></li>
+          <li><a href="contact.html" class="nav-link">Contacto</a></li>
+        </ul>
+        <div class="header-controls">
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema de color" title="Alternar modo claro / oscuro">
+            <span class="theme-icon" id="theme-icon">☀️</span>
+          </button>
+          <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido Principal: Contacto -->
+  <main>
+    <section class="section">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Conectemos</span>
+          <h1 class="section-title">Canales de Contacto Directo</h1>
+          <p class="section-subtitle">
+            ¿Tienes una propuesta laboral, proyecto de datos o consultoría tecnológica? Contáctame a través de mis canales directos o déjame un mensaje.
+          </p>
+        </header>
+
+        <!-- Cuadrícula de Contacto: Canales directos y Formulario -->
+        <div class="contact-grid">
+          <!-- Columna Izquierda: Canales Directos -->
+          <div class="contact-channels">
+            <!-- Canal 1: WhatsApp -->
+            <article class="channel-card">
+              <div class="channel-icon">💬</div>
+              <div class="channel-info">
+                <h2 class="channel-title">WhatsApp</h2>
+                <p class="channel-desc">+593 980506339 (Guayaquil, Ecuador)</p>
+                <a href="https://wa.me/593980506339?text=Hola%20Jonathan,%20he%20revisado%20tu%20perfil%20profesional%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20una%20oportunidad." 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn btn-outline btn-sm">
+                  Iniciar chat en WhatsApp
+                </a>
+              </div>
+            </article>
+
+            <!-- Canal 2: LinkedIn -->
+            <article class="channel-card">
+              <div class="channel-icon">💼</div>
+              <div class="channel-info">
+                <h2 class="channel-title">LinkedIn</h2>
+                <p class="channel-desc">linkedin.com/in/jonathan-macias-9813aa75</p>
+                <a href="https://www.linkedin.com/in/jonathan-macias-9813aa75" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn btn-outline btn-sm">
+                  Ver perfil profesional
+                </a>
+              </div>
+            </article>
+
+            <!-- Canal 3: Correo Electrónico -->
+            <article class="channel-card">
+              <div class="channel-icon">✉️</div>
+              <div class="channel-info">
+                <h2 class="channel-title">Correo Electrónico</h2>
+                <p class="channel-desc" id="email-address-text">jonathan15-08@hotmail.com</p>
+                <div class="channel-actions">
+                  <a href="mailto:jonathan15-08@hotmail.com" class="btn btn-outline btn-sm">
+                    Escribir correo
+                  </a>
+                  <button type="button" class="btn btn-secondary btn-sm" id="copy-email-btn">
+                    Copiar correo
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Columna Derecha: Formulario Validado -->
+          <article class="contact-form-card">
+            <h2 class="form-card-title">Envíame un mensaje</h2>
+            <p class="form-card-subtitle">
+              Completa el formulario y decide si prefieres enviarlo vía cliente de correo o directamente a mi chat de WhatsApp.
+            </p>
+
+            <form id="contact-form" novalidate>
+              <!-- Campo: Nombre -->
+              <div class="form-group">
+                <label for="name" class="form-label">Nombre completo <span class="required">*</span></label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Ej. Roberto Morales" required>
+              </div>
+
+              <!-- Campo: Correo -->
+              <div class="form-group">
+                <label for="email" class="form-label">Correo electrónico <span class="required">*</span></label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="tu.correo@empresa.com" required>
+              </div>
+
+              <!-- Campo: Asunto -->
+              <div class="form-group">
+                <label for="subject" class="form-label">Asunto <span class="required">*</span></label>
+                <input type="text" id="subject" name="subject" class="form-control" placeholder="Ej. Propuesta para Proyecto de Datos" required>
+              </div>
+
+              <!-- Campo: Mensaje -->
+              <div class="form-group">
+                <label for="message" class="form-label">Mensaje <span class="required">*</span></label>
+                <textarea id="message" name="message" class="form-control" rows="5" placeholder="Detalles de tu consulta, proyecto o vacante..." required></textarea>
+              </div>
+
+              <!-- Contenedor para mensajes de validación / feedback -->
+              <div id="form-feedback" class="form-feedback" aria-live="polite"></div>
+
+              <!-- Botones de Acción -->
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary" id="send-email-btn">
+                  ✉️ Enviar por Correo
+                </button>
+                <button type="button" class="btn btn-outline" id="send-whatsapp-btn">
+                  💬 Enviar por WhatsApp
+                </button>
+              </div>
+            </form>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de Página Compartido Flotante -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-copy">
+          &copy; <span id="current-year"></span> Jonathan Joel Macías Rodríguez. Guayaquil, Ecuador.
+        </p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/jonathan-macias-9813aa75" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">LinkedIn</a>
+          <a href="mailto:jonathan15-08@hotmail.com" class="social-link" aria-label="Correo">jonathan15-08@hotmail.com</a>
+          <a href="contact.html" class="social-link">Contacto</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Global y Específico de Contacto -->
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

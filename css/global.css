@@ -1,0 +1,813 @@
+/* ==========================================================================
+   css/global.css
+   Estilos Globales: Estilo iPhone Liquid Glass (iOS 26 Light & Dark)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Variables de Identidad Visual: Modo Oscuro por Defecto (Liquid Glass)
+   prueba
+   -------------------------------------------------------------------------- */
+:root {
+  /* Fondo Base y Atmósfera Líquida */
+  --color-bg: #050811;
+  --color-bg-alt: #0b1120;
+
+  /* Superficies Liquid Glass (Dark Crystal) */
+  --glass-tint: rgba(20, 29, 50, 0.44);
+  --glass-tint-hover: rgba(28, 40, 68, 0.56);
+  --glass-tint-nested: rgba(255, 255, 255, 0.06);
+  --glass-tint-nested-hover: rgba(255, 255, 255, 0.11);
+  --glass-bg: var(--glass-tint);
+  --glass-bg-hover: var(--glass-tint-hover);
+
+  /* Reflejo especular y refracción */
+  --glass-sheen: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 42%, rgba(255, 255, 255, 0.01) 100%);
+  --glass-glare: rgba(255, 255, 255, 0.14);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-border-light: rgba(255, 255, 255, 0.34);
+  --glass-rim-gradient: linear-gradient(140deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.1) 38%, rgba(56, 189, 248, 0.14) 72%, rgba(255, 255, 255, 0.28) 100%);
+
+  --glass-blur: blur(28px) saturate(210%) brightness(1.06);
+  --glass-blur-soft: blur(18px) saturate(185%);
+
+  --glass-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    0 4px 14px rgba(0, 0, 0, 0.25),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.28),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.08),
+    inset 0 0 28px rgba(255, 255, 255, 0.04);
+
+  --glass-shadow-hover:
+    0 26px 60px rgba(0, 0, 0, 0.55),
+    0 8px 20px rgba(37, 99, 235, 0.16),
+    inset 0 1.5px 1.5px rgba(255, 255, 255, 0.42),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.12),
+    inset 0 0 32px rgba(255, 255, 255, 0.07);
+
+  --glass-nested-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+
+  /* Navbar Flotante tipo Dynamic Island */
+  --nav-bg: rgba(17, 24, 42, 0.52);
+  --nav-bg-scrolled: rgba(13, 19, 34, 0.72);
+  --nav-border: rgba(255, 255, 255, 0.2);
+  --nav-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.42),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.28),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.07);
+
+  /* Elementos Tradicionales */
+  --color-surface: var(--glass-bg);
+  --color-surface-hover: var(--glass-bg-hover);
+  --color-border: var(--glass-border);
+  --color-border-light: var(--glass-border-light);
+
+  /* Acentos de Marca iOS */
+  --color-primary: #3b82f6;
+  --color-primary-hover: #60a5fa;
+  --color-secondary: #64748b;
+  --color-accent: #38bdf8;
+
+  /* Feedback */
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+
+  /* Tipografía */
+  --color-text: #f8fafc;
+  --color-text-muted: #a6b5cc;
+  --color-text-subtle: #74859e;
+
+  --font-main: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "SF Mono", Monaco, Consolas, "Liberation Mono", Courier, monospace;
+
+  /* Curvaturas Continuas Apple (Squircles) */
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  --max-width: 1140px;
+  --transition-fast: 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-base: 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Variables Modo Claro (iOS 26 Light Liquid Glass)
+   -------------------------------------------------------------------------- */
+[data-theme="light"] {
+  /* Fondo luminoso perlado con atmósfera de color para refracción */
+  --color-bg: #e8effa;
+  --color-bg-alt: #dde7f7;
+
+  /* Superficies Cristalinas Translúcidas */
+  --glass-tint: rgba(255, 255, 255, 0.48);
+  --glass-tint-hover: rgba(255, 255, 255, 0.64);
+  --glass-tint-nested: rgba(255, 255, 255, 0.52);
+  --glass-tint-nested-hover: rgba(255, 255, 255, 0.78);
+  --glass-bg: var(--glass-tint);
+  --glass-bg-hover: var(--glass-tint-hover);
+
+  --glass-sheen: linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.08) 100%);
+  --glass-glare: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.68);
+  --glass-border-light: rgba(255, 255, 255, 0.92);
+  --glass-rim-gradient: linear-gradient(140deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.42) 40%, rgba(147, 197, 253, 0.45) 75%, rgba(255, 255, 255, 0.85) 100%);
+
+  --glass-blur: blur(28px) saturate(210%) brightness(1.04);
+  --glass-blur-soft: blur(18px) saturate(190%);
+
+  --glass-shadow:
+    0 18px 42px rgba(15, 23, 42, 0.08),
+    0 4px 12px rgba(15, 23, 42, 0.04),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.95),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.48),
+    inset 0 0 24px rgba(255, 255, 255, 0.24);
+
+  --glass-shadow-hover:
+    0 24px 54px rgba(15, 23, 42, 0.12),
+    0 8px 20px rgba(37, 99, 235, 0.1),
+    inset 0 2px 1.5px rgba(255, 255, 255, 1),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.58),
+    inset 0 0 30px rgba(255, 255, 255, 0.34);
+
+  --glass-nested-shadow:
+    0 6px 16px rgba(15, 23, 42, 0.05),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.45);
+
+  /* Navbar Cápsula Flotante Cristalina */
+  --nav-bg: rgba(255, 255, 255, 0.56);
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.74);
+  --nav-border: rgba(255, 255, 255, 0.85);
+  --nav-shadow:
+    0 14px 36px rgba(15, 23, 42, 0.08),
+    0 2px 8px rgba(15, 23, 42, 0.04),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.96),
+    inset 0 -1px 1px rgba(255, 255, 255, 0.45);
+
+  --color-surface: var(--glass-bg);
+  --color-surface-hover: var(--glass-bg-hover);
+  --color-border: var(--glass-border);
+  --color-border-light: var(--glass-border-light);
+
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-secondary: #475569;
+  --color-accent: #0284c7;
+
+  --color-text: #0b1324;
+  --color-text-muted: #3f4f66;
+  --color-text-subtle: #64748b;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset Universal y Atmósfera Líquida Animada
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(circle at 12% 10%, rgba(37, 99, 235, 0.24) 0%, transparent 48%),
+    radial-gradient(circle at 88% 14%, rgba(124, 58, 237, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 52% 52%, rgba(6, 182, 212, 0.14) 0%, transparent 52%),
+    radial-gradient(circle at 82% 88%, rgba(59, 130, 246, 0.18) 0%, transparent 48%),
+    radial-gradient(circle at 14% 88%, rgba(99, 102, 241, 0.18) 0%, transparent 46%);
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+/* Orbes luminosos flotantes detrás del cristal (refracción Liquid Glass) */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(70px);
+  will-change: transform;
+}
+
+body::before {
+  width: clamp(320px, 46vw, 620px);
+  height: clamp(320px, 46vw, 620px);
+  top: -10%;
+  left: -8%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.32) 0%, rgba(37, 99, 235, 0.22) 48%, transparent 72%);
+  animation: liquidFloatA 18s ease-in-out infinite alternate;
+}
+
+body::after {
+  width: clamp(300px, 42vw, 560px);
+  height: clamp(300px, 42vw, 560px);
+  bottom: -12%;
+  right: -8%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.28) 0%, rgba(14, 165, 233, 0.18) 50%, transparent 74%);
+  animation: liquidFloatB 22s ease-in-out infinite alternate;
+}
+
+[data-theme="light"] body {
+  background-image:
+    radial-gradient(circle at 10% 12%, rgba(56, 189, 248, 0.34) 0%, transparent 48%),
+    radial-gradient(circle at 88% 12%, rgba(167, 139, 250, 0.3) 0%, transparent 45%),
+    radial-gradient(circle at 50% 52%, rgba(125, 211, 252, 0.24) 0%, transparent 54%),
+    radial-gradient(circle at 84% 88%, rgba(96, 165, 250, 0.28) 0%, transparent 48%),
+    radial-gradient(circle at 16% 88%, rgba(196, 181, 253, 0.26) 0%, transparent 46%);
+}
+
+[data-theme="light"] body::before {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.42) 0%, rgba(96, 165, 250, 0.26) 50%, transparent 74%);
+}
+
+[data-theme="light"] body::after {
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.38) 0%, rgba(45, 212, 191, 0.22) 52%, transparent 75%);
+}
+
+@keyframes liquidFloatA {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate3d(8vw, 6vh, 0) scale(1.12);
+  }
+}
+
+@keyframes liquidFloatB {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate3d(-7vw, -6vh, 0) scale(1.1);
+  }
+}
+
+main {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* --------------------------------------------------------------------------
+   3. Clases Utilitarias y Superficies Liquid Glass
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 3.5vw, 1.5rem);
+  padding-right: clamp(1rem, 3.5vw, 1.5rem);
+}
+
+.section {
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  width: 100%;
+}
+
+.section-alt {
+  background-color: transparent;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto clamp(2rem, 4vw, 3rem) auto;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-accent);
+  background:
+    linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(56, 189, 248, 0.06)),
+    var(--glass-tint-nested);
+  backdrop-filter: var(--glass-blur-soft);
+  -webkit-backdrop-filter: var(--glass-blur-soft);
+  border: 1px solid rgba(56, 189, 248, 0.34);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.38), 0 4px 12px rgba(2, 132, 199, 0.12);
+  padding: 0.38rem 0.95rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.85rem;
+}
+
+[data-theme="light"] .section-tag {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(224, 242, 254, 0.62));
+  border-color: rgba(255, 255, 255, 0.88);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.96), 0 6px 16px rgba(2, 132, 199, 0.1);
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.35rem);
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Insignia de Disponibilidad */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #10b981;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.18), rgba(16, 185, 129, 0.06));
+  backdrop-filter: var(--glass-blur-soft);
+  -webkit-backdrop-filter: var(--glass-blur-soft);
+  border: 1px solid rgba(16, 185, 129, 0.34);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 4px 14px rgba(16, 185, 129, 0.14);
+  padding: 0.38rem 0.9rem;
+  border-radius: var(--radius-full);
+}
+
+[data-theme="light"] .status-badge {
+  color: #047857;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(209, 250, 229, 0.65));
+  border-color: rgba(255, 255, 255, 0.88);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 6px 16px rgba(16, 185, 129, 0.12);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--color-success);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.9);
+  animation: statusPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.85);
+  }
+
+  50% {
+    transform: scale(1.22);
+    box-shadow: 0 0 14px rgba(16, 185, 129, 1);
+  }
+}
+
+/* Botones con Estilo iOS Liquid Glass Píldora */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.72rem 1.48rem;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+  text-align: center;
+  line-height: 1.2;
+  text-decoration: none;
+  min-height: 44px;
+  will-change: transform;
+}
+
+.btn:active {
+  transform: scale(0.97) translateY(0);
+}
+
+.btn-primary {
+  background:
+    radial-gradient(120px circle at var(--gx, 25%) var(--gy, 15%), rgba(255, 255, 255, 0.34), transparent 70%),
+    linear-gradient(180deg, rgba(96, 165, 250, 0.95) 0%, rgba(37, 99, 235, 0.92) 55%, rgba(29, 78, 216, 0.98) 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow:
+    0 10px 26px rgba(37, 99, 235, 0.36),
+    0 2px 6px rgba(37, 99, 235, 0.2),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.62),
+    inset 0 -2px 6px rgba(15, 23, 42, 0.22);
+}
+
+.btn-primary:hover {
+  background:
+    radial-gradient(120px circle at var(--gx, 25%) var(--gy, 15%), rgba(255, 255, 255, 0.42), transparent 70%),
+    linear-gradient(180deg, rgba(147, 197, 253, 0.96) 0%, rgba(59, 130, 246, 0.95) 55%, rgba(37, 99, 235, 1) 100%);
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 34px rgba(37, 99, 235, 0.48),
+    0 4px 10px rgba(56, 189, 248, 0.25),
+    inset 0 2px 1px rgba(255, 255, 255, 0.72),
+    inset 0 -2px 6px rgba(15, 23, 42, 0.18);
+}
+
+.btn-outline,
+.btn-secondary {
+  background:
+    radial-gradient(140px circle at var(--gx, 20%) var(--gy, 10%), var(--glass-glare), transparent 70%),
+    var(--glass-sheen),
+    var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  color: var(--color-text);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-nested-shadow);
+}
+
+.btn-outline:hover,
+.btn-secondary:hover {
+  background:
+    radial-gradient(140px circle at var(--gx, 20%) var(--gy, 10%), var(--glass-glare), transparent 70%),
+    var(--glass-sheen),
+    var(--glass-bg-hover);
+  border-color: var(--glass-border-light);
+  transform: translateY(-2px);
+  box-shadow: var(--glass-shadow-hover);
+}
+
+.btn-sm {
+  font-size: 0.85rem;
+  padding: 0.45rem 1.05rem;
+  min-height: 38px;
+}
+
+/* Badges Cristalinos */
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.72rem;
+  border-radius: var(--radius-full);
+  background: var(--glass-tint-nested);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #dbeafe;
+  border: 1px solid var(--glass-border);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+[data-theme="light"] .badge {
+  background: rgba(255, 255, 255, 0.62);
+  color: #1e293b;
+  border-color: rgba(255, 255, 255, 0.88);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+/* --------------------------------------------------------------------------
+   4. Barra de Navegación Flotante en Cápsula (iPhone Liquid Island)
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0.9rem 0;
+  background: transparent;
+  width: 100%;
+  transition: padding var(--transition-base);
+}
+
+.site-header.is-scrolled {
+  padding: 0.55rem 0;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background:
+    radial-gradient(280px circle at var(--gx, 50%) var(--gy, 0%), var(--glass-glare), transparent 72%),
+    var(--glass-sheen),
+    var(--nav-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--nav-border);
+  border-radius: var(--radius-full);
+  padding: 0.5rem 0.7rem 0.5rem 1.35rem;
+  box-shadow: var(--nav-shadow);
+  transition: all var(--transition-base);
+}
+
+.site-header.is-scrolled .navbar {
+  background:
+    radial-gradient(280px circle at var(--gx, 50%) var(--gy, 0%), var(--glass-glare), transparent 72%),
+    var(--glass-sheen),
+    var(--nav-bg-scrolled);
+  border-color: var(--glass-border-light);
+}
+
+.logo {
+  font-size: 1.12rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.nav-link {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  padding: 0.46rem 1.05rem;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.nav-link:hover {
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.34);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .nav-link:hover {
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+/* Píldora Activa: Gota de Cristal Elevada */
+.nav-link.active {
+  color: #0b1324;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.72) 100%);
+  font-weight: 700;
+  box-shadow:
+    0 6px 16px rgba(15, 23, 42, 0.08),
+    inset 0 1.5px 1px rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+}
+
+[data-theme="dark"] .nav-link.active {
+  color: #ffffff;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.12) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.3),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.45),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+/* Botón Modo Claro / Oscuro (Gota Circular) */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background: var(--glass-sheen), var(--glass-tint-nested);
+  backdrop-filter: var(--glass-blur-soft);
+  -webkit-backdrop-filter: var(--glass-blur-soft);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-nested-shadow);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.07);
+  border-color: var(--glass-border-light);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Botón Móvil */
+.menu-toggle {
+  display: none;
+  background: var(--glass-sheen), var(--glass-tint-nested);
+  backdrop-filter: var(--glass-blur-soft);
+  -webkit-backdrop-filter: var(--glass-blur-soft);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 38px;
+  height: 38px;
+  box-shadow: var(--glass-nested-shadow);
+  transition: all var(--transition-fast);
+}
+
+.hamburger-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+/* --------------------------------------------------------------------------
+   5. Pie de Página Flotante Liquid Glass (.site-footer)
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background: transparent;
+  padding: 2.5rem 0 3rem 0;
+  margin-top: auto;
+}
+
+.footer-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  background:
+    radial-gradient(300px circle at var(--gx, 20%) var(--gy, 0%), var(--glass-glare), transparent 72%),
+    var(--glass-sheen),
+    var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 1.25rem 2rem;
+  box-shadow: var(--glass-shadow);
+}
+
+.footer-copy {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.social-link {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.social-link:hover {
+  color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------------
+   6. Adaptabilidad Tablets y Móviles (< 1024px y < 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Menú desplegable flotante estilo tarjeta Liquid Glass de iOS */
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 1rem;
+    right: 1rem;
+    background: var(--glass-sheen), var(--nav-bg-scrolled);
+    backdrop-filter: blur(34px) saturate(220%);
+    -webkit-backdrop-filter: blur(34px) saturate(220%);
+    border: 1px solid var(--glass-border-light);
+    border-radius: var(--radius-xl);
+    flex-direction: column;
+    padding: 1.1rem;
+    gap: 0.45rem;
+    box-shadow: var(--glass-shadow-hover);
+    z-index: 999;
+  }
+
+  .nav-menu.open {
+    display: flex;
+    animation: slideDownGlass 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @keyframes slideDownGlass {
+    from {
+      opacity: 0;
+      transform: translateY(-10px) scale(0.97);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    font-size: 1.02rem;
+    border-radius: var(--radius-md);
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+}
+
+/* Respetar preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+
+  body::before,
+  body::after,
+  .status-dot {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

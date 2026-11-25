@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="p2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#090520"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" rx="12" fill="url(#p2Grad)"/>
+  <!-- Barra de ventana -->
+  <rect width="600" height="38" rx="12" fill="#2e1065"/>
+  <circle cx="24" cy="19" r="6" fill="#ef4444"/>
+  <circle cx="44" cy="19" r="6" fill="#f59e0b"/>
+  <circle cx="64" cy="19" r="6" fill="#10b981"/>
+  <text x="300" y="24" fill="#c084fc" font-size="12" font-family="sans-serif" text-anchor="middle">tienda-artesanal.local</text>
+  <!-- Tarjetas de producto simuladas -->
+  <rect x="50" y="70" width="150" height="210" rx="8" fill="#2e1065" stroke="#9333ea" stroke-width="1.5"/>
+  <rect x="225" y="70" width="150" height="210" rx="8" fill="#2e1065" stroke="#a855f7" stroke-width="1.5"/>
+  <rect x="400" y="70" width="150" height="210" rx="8" fill="#2e1065" stroke="#9333ea" stroke-width="1.5"/>
+  <!-- Botones de compra simulados -->
+  <rect x="70" y="240" width="110" height="24" rx="4" fill="#a855f7"/>
+  <rect x="245" y="240" width="110" height="24" rx="4" fill="#ec4899"/>
+  <rect x="420" y="240" width="110" height="24" rx="4" fill="#a855f7"/>
+  <text x="300" y="325" fill="#f472b6" font-size="14" font-weight="bold" font-family="sans-serif" text-anchor="middle">E-Commerce Moderno Responsive</text>
+</svg>

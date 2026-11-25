@@ -1,0 +1,1040 @@
+/* ==========================================================================
+   css/pages.css
+   Estilos Específicos: Estilo iPhone Liquid Glass (iOS 26 Light & Dark)
+   ========================================================================== */
+
+/* Borde prismático especular compartido para tarjetas principales Liquid Glass */
+.highlight-card,
+.about-card,
+.skill-card,
+.project-card,
+.channel-card,
+.contact-form-card {
+  position: relative;
+}
+
+.highlight-card::after,
+.about-card::after,
+.skill-card::after,
+.project-card::after,
+.channel-card::after,
+.contact-form-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--glass-rim-gradient);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.78;
+  transition: opacity var(--transition-base);
+}
+
+.highlight-card:hover::after,
+.about-card:hover::after,
+.skill-card:hover::after,
+.project-card:hover::after,
+.channel-card:hover::after,
+.contact-form-card:hover::after {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   1. PÁGINA 1: INICIO (index.html)
+   -------------------------------------------------------------------------- */
+
+/* Sección Hero */
+.hero {
+  padding-top: clamp(2rem, 5vw, 4rem);
+  padding-bottom: clamp(2rem, 5vw, 4rem);
+  width: 100%;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 3.5rem);
+}
+
+.hero-tagline {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: clamp(2.1rem, 5vw, 3.1rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+}
+
+.hero-role {
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}
+
+.hero-desc {
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 620px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2.25rem;
+}
+
+/* Métricas Rápidas: Gotas Liquid Glass */
+.recruiter-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.metric-item {
+  background:
+    radial-gradient(140px circle at var(--gx, 20%) var(--gy, 15%), var(--glass-glare), transparent 72%),
+    var(--glass-sheen),
+    var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-nested-shadow);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.metric-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--glass-border-light);
+  box-shadow: var(--glass-shadow-hover);
+}
+
+.metric-number {
+  font-size: clamp(1.2rem, 3vw, 1.45rem);
+  font-weight: 800;
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  line-height: 1.2;
+}
+
+.metric-label {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  margin-top: 0.22rem;
+}
+
+/* Avatar Liquid Glass con Aro Refringente */
+.hero-media {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-media::before {
+  content: "";
+  position: absolute;
+  width: clamp(230px, 32vw, 330px);
+  height: clamp(230px, 32vw, 330px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.26) 0%, rgba(139, 92, 246, 0.16) 48%, transparent 72%);
+  filter: blur(24px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-avatar {
+  position: relative;
+  z-index: 1;
+  width: clamp(210px, 30vw, 300px);
+  height: clamp(210px, 30vw, 300px);
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 50%;
+  padding: 8px;
+  background: var(--glass-sheen), var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1.5px solid var(--glass-border-light);
+  box-shadow: var(--glass-shadow);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.hero-avatar:hover {
+  transform: scale(1.03);
+  box-shadow: var(--glass-shadow-hover);
+}
+
+/* Grilla de Fortalezas (index.html) */
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.2rem, 3vw, 1.75rem);
+}
+
+.highlight-card {
+  background:
+    radial-gradient(240px circle at var(--gx, 18%) var(--gy, 12%), var(--glass-glare), transparent 72%),
+    var(--glass-sheen),
+    var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
+}
+
+.highlight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--glass-shadow-hover);
+}
+
+.highlight-icon {
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 1.1rem;
+  border-radius: 16px;
+  background: var(--glass-sheen), var(--glass-tint-nested);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-nested-shadow);
+}
+
+.highlight-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--color-text);
+}
+
+.highlight-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   2. PÁGINA 2: SOBRE MÍ (about.html)
+   -------------------------------------------------------------------------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: clamp(1.5rem, 3.5vw, 2.25rem);
+  align-items: start;
+}
+
+.about-card {
+  background:
+    radial-gradient(280px circle at var(--gx, 20%) var(--gy, 12%), var(--glass-glare), transparent 72%),
+    var(--glass-sheen),
+    var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  transition: box-shadow var(--transition-base);
+}
+
+.about-card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.about-text {
+  font-size: 0.98rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.about-key-info {
+  margin-top: 1.5rem;
+  padding: 1.15rem 1.25rem;
+  background: var(--glass-sheen), var(--glass-tint-nested);
+  backdrop-filter: var(--glass-blur-soft);
+  -webkit-backdrop-filter: var(--glass-blur-soft);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-nested-shadow);
+}
+
+.about-key-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.about-key-item {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.35rem;
+  line-height: 1.5;
+}
+
+.about-key-item:last-child {
+  margin-bottom: 0;
+}
+
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+/* Línea de Tiempo (Timeline) */
+.timeline-list {
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 0.75rem;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.5rem - 7px);
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #60a5fa, #2563eb);
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.85);
+}
+
+.timeline-date {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.16), rgba(56, 189, 248, 0.08));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  padding: 0.22rem 0.72rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.45rem;
+}
+
+.timeline-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.2rem;
+}
+
+.timeline-subtitle {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.timeline-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   3. PÁGINA 3: HABILIDADES (skills.html) - Cápsulas Liquid Glass Anidadas
+   -------------------------------------------------------------------------- */
+.skills-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.2rem, 3vw, 1.75rem);
+  margin-bottom: clamp(1.2rem, 3vw, 1.75rem);
+}
+
+/* Tarjeta Contenedora Principal (Squircle 26px) */
+.skill-card {
+  background:
+    radial-gradient(260px circle at var(--gx, 20%) var(--gy, 12%), var(--glass-glare), transparent 72%),
+    var(--glass-sheen),
+    var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.skill-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glass-shadow-hover);
+}
+
+.card-section-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 1.35rem;
+  letter-spacing: -0.015em;
+}
+
+/* Cuadrícula de Cápsulas (2 columnas dentro de cada tarjeta grande) */
+.capsules-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+}
+
+/* Cápsula de Habilidad Individual (Gota Anidada) */
+.skill-capsule {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.78rem 1rem;
+  background:
+    radial-gradient(120px circle at var(--gx, 25%) var(--gy, 15%), var(--glass-glare), transparent 72%),
+    var(--glass-sheen),
+    var(--glass-tint-nested);
+  backdrop-filter: var(--glass-blur-soft);
+  -webkit-backdrop-filter: var(--glass-blur-soft);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-nested-shadow);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast);
+  cursor: default;
+}
+
+.skill-capsule:hover {
+  transform: translateY(-2px);
+  background:
+    radial-gradient(120px circle at var(--gx, 25%) var(--gy, 15%), var(--glass-glare), transparent 72%),
+    var(--glass-sheen),
+    var(--glass-tint-nested-hover);
+  border-color: var(--glass-border-light);
+  box-shadow: var(--glass-shadow-hover);
+}
+
+.capsule-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.capsule-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.capsule-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.25;
+}
+
+.capsule-subtitle {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  margin-top: 0.15rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Tarjeta Inferior de Ancho Completo: Aptitudes & Metodologías */
+.full-width-card {
+  width: 100%;
+}
+
+.aptitudes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.aptitude-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.56rem 1.15rem;
+  background: var(--glass-sheen), var(--glass-tint-nested);
+  backdrop-filter: var(--glass-blur-soft);
+  -webkit-backdrop-filter: var(--glass-blur-soft);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+  box-shadow: var(--glass-nested-shadow);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+  cursor: default;
+}
+
+.aptitude-pill:hover {
+  transform: translateY(-2px);
+  background: var(--glass-sheen), var(--glass-tint-nested-hover);
+  border-color: var(--glass-border-light);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.sparkle-icon {
+  color: #0284c7;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+[data-theme="dark"] .sparkle-icon {
+  color: #38bdf8;
+}
+
+/* --------------------------------------------------------------------------
+   4. PÁGINA 4: PROYECTOS (projects.html)
+   -------------------------------------------------------------------------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.2rem, 3vw, 1.75rem);
+}
+
+.project-card {
+  background:
+    radial-gradient(240px circle at var(--gx, 18%) var(--gy, 12%), var(--glass-glare), transparent 72%),
+    var(--glass-sheen),
+    var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--glass-shadow-hover);
+}
+
+.project-media {
+  width: 100%;
+  height: 190px;
+  background: rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+  border-bottom: 1px solid var(--glass-border);
+  position: relative;
+}
+
+.project-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+[data-theme="dark"] .project-media {
+  background: rgba(11, 16, 28, 0.55);
+}
+
+[data-theme="dark"] .project-media::after {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 45%);
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.04);
+}
+
+.project-body {
+  padding: clamp(1.25rem, 2.5vw, 1.6rem);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.65rem;
+  line-height: 1.35;
+}
+
+.project-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.project-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.35rem;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: auto;
+}
+
+/* --------------------------------------------------------------------------
+   5. PÁGINA 5: CONTACTO (contact.html)
+   -------------------------------------------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: clamp(1.5rem, 3.5vw, 2.25rem);
+  align-items: start;
+}
+
+.contact-channels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.channel-card {
+  background:
+    radial-gradient(220px circle at var(--gx, 18%) var(--gy, 15%), var(--glass-glare), transparent 72%),
+    var(--glass-sheen),
+    var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.15rem;
+  align-items: flex-start;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.channel-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glass-shadow-hover);
+}
+
+.channel-icon {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.55rem;
+  line-height: 1;
+  border-radius: 15px;
+  background: var(--glass-sheen), var(--glass-tint-nested);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-nested-shadow);
+  flex-shrink: 0;
+}
+
+.channel-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.channel-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+}
+
+.channel-desc {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.85rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.channel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Tarjeta y Formulario */
+.contact-form-card {
+  background:
+    radial-gradient(280px circle at var(--gx, 22%) var(--gy, 12%), var(--glass-glare), transparent 72%),
+    var(--glass-sheen),
+    var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.form-card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.35rem;
+}
+
+.form-card-subtitle {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.75rem;
+}
+
+.form-group {
+  margin-bottom: 1.35rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.45rem;
+}
+
+.form-label .required {
+  color: var(--color-primary);
+}
+
+.form-control {
+  width: 100%;
+  background: var(--glass-tint-nested);
+  backdrop-filter: var(--glass-blur-soft);
+  -webkit-backdrop-filter: var(--glass-blur-soft);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.1rem;
+  color: var(--color-text);
+  font-size: 1rem;
+  min-height: 48px;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.06), inset 0 -1px 0 rgba(255, 255, 255, 0.35);
+  transition: all var(--transition-fast);
+}
+
+.form-control::placeholder {
+  color: var(--color-text-subtle);
+}
+
+[data-theme="dark"] .form-control {
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: var(--glass-tint-nested-hover);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.form-control.input-error {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-feedback {
+  display: none;
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.form-feedback.success {
+  display: block;
+  background-color: rgba(16, 185, 129, 0.16);
+  border: 1px solid rgba(16, 185, 129, 0.38);
+  color: #047857;
+}
+
+[data-theme="dark"] .form-feedback.success {
+  color: #6ee7b7;
+}
+
+.form-feedback.error {
+  display: block;
+  background-color: rgba(239, 68, 68, 0.16);
+  border: 1px solid rgba(239, 68, 68, 0.38);
+  color: #dc2626;
+}
+
+[data-theme="dark"] .form-feedback.error {
+  color: #fca5a5;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. RESPONSIVE DESIGN AVANZADO: TABLETS Y MÓVILES
+   -------------------------------------------------------------------------- */
+
+/* TABLETS (iPad: 768px a 1024px) */
+@media (max-width: 1024px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.25rem;
+  }
+
+  .hero-tagline {
+    justify-content: center;
+  }
+
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-media {
+    order: -1;
+  }
+
+  .skills-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .highlights-grid,
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+/* MÓVILES (Smartphones < 768px) */
+@media (max-width: 768px) {
+  .recruiter-metrics {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .capsules-grid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .highlights-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .hero-actions,
+  .about-actions,
+  .project-links,
+  .form-actions,
+  .channel-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn,
+  .about-actions .btn,
+  .project-links .btn,
+  .form-actions .btn,
+  .channel-actions .btn {
+    width: 100%;
+  }
+
+  .channel-card {
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+}
+
+/* PANTALLAS ULTRA COMPACTAS (< 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .recruiter-metrics {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  .metric-item {
+    padding: 0.75rem 0.65rem;
+  }
+
+  .metric-number {
+    font-size: 1.2rem;
+  }
+
+  .skill-card,
+  .about-card,
+  .contact-form-card {
+    padding: 1.35rem 1.1rem;
+  }
+
+  .aptitude-pill {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. ESTILOS DE IMPRESIÓN (@media print)
+   -------------------------------------------------------------------------- */
+@media print {
+
+  .site-header,
+  .site-footer,
+  .about-actions,
+  .menu-toggle,
+  .theme-toggle,
+
+    .hero-actions,
+    body::before,
+    body::after,
+    .highlight-card::after,
+    .about-card::after,
+    .skill-card::after,
+    .project-card::after,
+    .channel-card::after,
+    .contact-form-card::after {
+      display: none !important;
+    }
+
+    body {
+      background: #ffffff !important;
+      color: #111827 !important;
+      font-size: 11pt !important;
+      line-height: 1.4 !important;
+    }
+
+    .section {
+      padding-top: 0.8rem !important;
+      padding-bottom: 0.8rem !important;
+    }
+
+    .about-grid {
+      display: block !important;
+    }
+
+    .about-card,
+    .skill-card {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin-bottom: 1.5rem !important;
+    }
+
+    .about-card-title,
+    .card-section-title {
+      color: #0f172a !important;
+      border-bottom: 2px solid #2563eb !important;
+      font-size: 14pt !important;
+    }
+
+    .about-text,
+    .timeline-desc {
+      color: #374151 !important;
+    }
+
+    .timeline-list {
+      border-left: 2px solid #94a3b8 !important;
+    }
+
+    .timeline-item::before {
+      background-color: #2563eb !important;
+      border-color: #ffffff !important;
+    }
+
+    .timeline-title {
+      color: #0f172a !important;
+    }
+
+    .timeline-date {
+      background-color: #e0f2fe !important;
+      color: #0284c7 !important;
+      border: 1px solid #bae6fd !important;
+    }
+  }
